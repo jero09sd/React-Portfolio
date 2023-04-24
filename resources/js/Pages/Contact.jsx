@@ -2,7 +2,7 @@ import { Link, Head } from "@inertiajs/react";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
-export default function Welcome({ auth }) {
+export default function Contact({ auth }) {
     const [nav, setNav] = useState(false);
 
     const handleNav = () => {
@@ -12,7 +12,7 @@ export default function Welcome({ auth }) {
         <>
             <Head title="Welcome" />
 
-            <div className="min-h-screen bg-gradient-to-b from-[#000300] via-[#000107] to-[#000000]">
+            <div className="min-h-screen bg-gradient-to-b from-[#000300] via-[#111111] to-[#000000]">
                 <nav className="bg-white/25 border-b border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
                         <h1 className="mx-auto mt-1 w-full font-extrabold font-untouched text-lg lg:text-3xl  bg-gradient-to-r from-[#ffffff] via-[#001618] to-[#001618] bg-clip-text text-transparent">

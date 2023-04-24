@@ -13,9 +13,9 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        \App\Models\Link::class => \App\Policies\AdminLinkPolicy::class,
     ];
-
+    
     /**
      * Register any authentication / authorization services.
      */

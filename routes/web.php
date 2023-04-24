@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+
+
 Route::get('/usersdashboard', function () {
     $users = User::all();
 
@@ -15,10 +17,24 @@ Route::get('/usersdashboard', function () {
     ]);
 })->middleware(['auth'])->name('UsersDashboard');
 
+Route::get('/', function () {
+    $users = App\Models\User::all();
+    return Inertia::render('Index', [
+        'users' => $users,
+    ]);
+});
 
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::get('/admin-only-link', function () {
+    return view('admin-only-link');
+})->middleware('can:view-admin-link');
+
+Route::get('/admin-only-link', function () {
+    return view('admin-only-link');
+})->middleware('can:view-admin-link');
+
+Route::post('/users/{id}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -32,6 +48,14 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/Contact', function () {
+    return Inertia::render('Contact');
+});
+
+Route::get('/About', function () {
+    return Inertia::render('About');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
