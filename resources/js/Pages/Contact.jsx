@@ -1,6 +1,7 @@
 import { Link, Head } from "@inertiajs/react";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import FooterLayout from '@/Layouts/FooterLayout'
 
 export default function Contact({ auth }) {
     const [nav, setNav] = useState(false);
@@ -9,11 +10,11 @@ export default function Contact({ auth }) {
         setNav(!nav);
     };
     return (
-        <>
+        <div className="bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]">
             <Head title="Welcome" />
 
-            <div className="min-h-screen bg-gradient-to-b from-[#000300] via-[#111111] to-[#000000]">
-                <nav className="bg-white/25 border-b border-black">
+            <div className="min-h-screen">
+                <nav className="bg-black/25 border-b border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
                         <h1 className="mx-auto mt-1 w-full font-extrabold font-untouched text-lg lg:text-3xl  bg-gradient-to-r from-[#ffffff] via-[#001618] to-[#001618] bg-clip-text text-transparent">
                             Triestis<span className="text-[#1feffe]">.</span>
@@ -122,7 +123,138 @@ export default function Contact({ auth }) {
                         </ul>
                     </div>
                 </nav>
+                <section class="bg-tansparent py-20 lg:py-[20rem] overflow-hidden relative z-10">
+                    <div class="container">
+                        <div class="flex flex-wrap lg:justify-between -mx-4">
+                            <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
+                                <div class="max-w-[570px] mb-12 lg:mb-0">
+                                    <span class="block mb-4 text-base text-primary font-semibold">
+                                        Contact Us
+                                    </span>
+                                    <h2
+                                        class="
+                  text-[#2470c6]
+                  mb-6
+                  uppercase
+                  font-extrabold
+                  text-[32px]
+                  sm:text-[40px]
+                  lg:text-[36px]
+                  xl:text-[40px]
+                  "
+                                    >
+                                        GET IN TOUCH WITH US
+                                    </h2>
+                                    <p class="text-base text-body-color leading-relaxed mb-9">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed do eius tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua. Ut enim adiqua minim veniam quis
+                                        nostrud exercitation ullamco
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/2 xl:w-5/12 px-4 drop-shadow-3xl ">
+                                <div className="bg-black/50 backdrop-blur-md  relative  rounded-lg p-8 sm:p-12 shadow-lg">
+                                    <form>
+                                        <div class="mb-6">
+                                            <input
+                                                type="text"
+                                                placeholder="Your Name"
+                                                class="
+                                                w-full
+                                                rounded-lg
+                                                py-3
+                                                px-[14px]
+                                                bg-transparent
+                                                text-body-color text-base
+                                                border border-[f0f0f0]
+                                                resize-none
+                                                outline-none
+                                                focus-visible:shadow-none
+                                                focus:border-[#2470c6]
+                        "
+                                            />
+                                        </div>
+                                        <div class="mb-6">
+                                            <input
+                                                type="email"
+                                                placeholder="Your Email"
+                                                class="
+                                                w-full
+                                                rounded-lg
+                                                py-3
+                                                px-[14px]
+                                                bg-transparent
+                                                text-body-color text-base
+                                                border border-[f0f0f0]
+                                                resize-none
+                                                outline-none
+                                                focus-visible:shadow-none
+                                                focus:border-[#2470c6]
+                        "
+                                            />
+                                        </div>
+                                        <div class="mb-6">
+                                            <input
+                                                type="text"
+                                                placeholder="Your Phone"
+                                                class="
+                                                w-full
+                                                rounded-lg
+                                                py-3
+                                                px-[14px]
+                                                bg-transparent
+                                                text-body-color text-base
+                                                border border-[f0f0f0]
+                                                resize-none
+                                                outline-none
+                                                focus-visible:shadow-none
+                                                focus:border-[#2470c6]
+                        "
+                                            />
+                                        </div>
+                                        <div class="mb-6">
+                                            <textarea
+                                                rows="6"
+                                                placeholder="Your Message"
+                                                class="
+                                                w-full
+                                                rounded-lg
+                                                py-3
+                                                px-[14px]
+                                                bg-transparent
+                                                text-body-color text-base
+                                                border border-[f0f0f0]
+                                                resize-none
+                                                outline-none
+                                                focus-visible:shadow-none
+                                                focus:border-[#2470c6]
+                        "
+                                            ></textarea>
+                                        </div>
+                                        <div>
+                                            <button
+                                                type="submit"
+                                                className="
+                                            relative rounded-md m-4 text-white text-center p-2 px-4 bg-[#2470c6]  transition-all duration-500
+                                            before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[#2470c6] before:transition-all
+                                            before:duration-300 before:opacity-20 before:hover:opacity-0 before:hover:scale-50
+                                            after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 after:transition-all after:duration-300
+                                            after:border after:border-white/50 after:scale-125 after:hover:opacity-100 after:hover:scale-100
+                        "
+                                            >
+                                                Send Message
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </>
+            <FooterLayout/>
+        </div>
     );
 }

@@ -10,8 +10,8 @@ export default function Authenticated({ user, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#000300] via-[#000107] to-[#000000]">
-            <nav className="bg-white/25 border-b border-[#010636]">
+        <div className="min-h-screen bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]">
+            <nav className="bg-black/50 border-b border-[#010636]">
                 <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
