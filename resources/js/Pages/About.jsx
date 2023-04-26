@@ -1,6 +1,7 @@
 import { Link, Head } from "@inertiajs/react";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import FooterLayout from "@/Layouts/FooterLayout";
 
 export default function About({ auth }) {
     const [nav, setNav] = useState(false);
@@ -12,8 +13,8 @@ export default function About({ auth }) {
         <>
             <Head title="Welcome" />
 
-            <div className="min-h-screen bg-gradient-to-b from-[#000300] via-[#111111] to-[#000000]">
-                <nav className="bg-white/25 border-b border-black">
+            <div className="min-h-screen bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]">
+                <nav className="bg-black/25 border-b border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
                         <h1 className="mx-auto mt-1 w-full font-extrabold font-untouched text-lg lg:text-3xl  bg-gradient-to-r from-[#ffffff] via-[#001618] to-[#001618] bg-clip-text text-transparent">
                             Triestis<span className="text-[#1feffe]">.</span>
@@ -122,6 +123,146 @@ export default function About({ auth }) {
                         </ul>
                     </div>
                 </nav>
+                <div className="h-full max-h-full max-w-full">
+                    <div
+                        className="w-full h-[30rem] opacity-25"
+                        style={{
+                            backgroundImage: `url(${"../../Assets/DSC00215-2-scaled.jpg"})`,
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    ></div>{" "}
+                    <div className="w-full flex justify-center items-center bg-black/25">
+                        <span className="w-[50rem] text-center my-5">
+                            {" "}
+                            <h1 className=" mx-4 mt-4 font-extrabold font-untouched text-lg md:text-6xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
+                                Triestis
+                                <span className="text-[#1feffe]">.</span>
+                                <span className="uppercase font-Roman md:text-3xl text-gray-100">
+                                    {" "}
+                                    provides service with a comfort of your own
+                                    home
+                                </span>
+                            </h1>
+                        </span>
+                    </div>
+                </div>
+                <div className="w-full md:h-[100rem] h-[50rem]">
+                    {" "}
+                    <section
+                        className="h-full"
+                        style={{
+                            backgroundImage: `url(${"../../Assets/ARENAWIDE-MOCKUP_1920X1280_72DPI.png"})`,
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    >
+                        <div class=" py-10 mx-auto">
+                            <div class="lg:-mx-6 md:flex max-w-full md:items-cente md:mt-[5%] md:items-center">
+                                <div className="mt-6 lg:w-1/2 md:mt-0 md:w-20 text-center">
+                                </div>
+                                <div class="mt-6 lg:w-1/2 md:mt-0 md:mx-10 ">
+                                    <div class="text-sm text-gray-500 md:text-xl bg-black/50 p-10">
+                                        <p className="font-extrabold font-untouched text-lg md:text-6xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
+                                            <span className="text-white">
+                                                "
+                                            </span>{" "}
+                                            Triestis
+                                            <span className="text-[#1feffe]">
+                                                .
+                                            </span>
+                                            <span className="font-sans text-white text-lg italic">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Mollitia ut perspiciatis facere
+                                                earum voluptas eius ad? Tenetur
+                                                tempore expedita eaque
+                                                consequuntur laborum laudantium
+                                                corporis repellendus, facilis
+                                                magni totam at eum! Nostrum
+                                                assumenda facilis, vero rem
+                                                laborum voluptatum eligendi
+                                                ipsum aspernatur hic perferendis
+                                                nam dolore vitae, laboriosam
+                                                possimus libero culpa recusandae
+                                                quia alias mollitia. Dolor
+                                                consectetur tenetur eveniet eos
+                                                qui necessitatibus reprehenderit
+                                                asperiores ullam excepturi
+                                                deserunt est consequatur
+                                                voluptatibus, vitae impedit iure
+                                                perferendis dolorum rem tempora
+                                                cum doloremque et fuga nisi.
+                                                Velit porro eius nobis minus
+                                                esse numquam natus ex. Modi
+                                                alias odio similique, doloremque
+                                                natus voluptates vel
+                                                repellendus? Accusamus illo unde
+                                                praesentium hic aliquam
+                                                similique ad saepe esse veniam
+                                                illum eos odit dignissimos,
+                                                placeat quae tempora laboriosam?
+                                                Iure necessitatibus aperiam
+                                                laborum quis error molestias
+                                                provident veniam nemo harum
+                                                corrupti! Praesentium a
+                                                consequuntur harum amet
+                                                consectetur, nemo pariatur
+                                                magnam laborum quidem sit
+                                                consequatur suscipit provident
+                                                vel obcaecati non nobis ipsum
+                                                blanditiis voluptas temporibus
+                                                distinctio earum ipsa! Deleniti,
+                                                provident dolorum? Ipsum, alias
+                                                quam tempora iste odit
+                                                reiciendis sequi accusamus
+                                                beatae aspernatur! Quaerat,
+                                                repellat? Eum incidunt nulla ea
+                                                quidem nisi quaerat, nihil
+                                                quibusdam quos labore eligendi
+                                                possimus repudiandae voluptates
+                                                esse nostrum laborum molestias
+                                                eveniet libero recusandae?
+                                                Quibusdam in debitis ipsam dicta
+                                                mollitia? Id repudiandae ea,
+                                                recusandae facilis mollitia
+                                                voluptatum harum quisquam
+                                                similique accusamus provident
+                                                inventore, consequatur dolore
+                                                eos possimus adipisci ipsam qui,
+                                                perspiciatis veniam! Modi
+                                                praesentium perferendis fugit
+                                                voluptate iure aut dolorem,
+                                                sapiente, ipsa eum itaque quia
+                                                voluptas? Odio, dolorem veniam
+                                                minus quibusdam ipsam sit
+                                                praesentium consequuntur
+                                                repudiandae voluptatum
+                                                accusantium, perspiciatis
+                                                consequatur, unde ipsum optio
+                                                aut rem expedita a itaque totam.
+                                                Quia ipsa adipisci recusandae
+                                                earum tempore, quod beatae,
+                                                ducimus ratione architecto cum
+                                                reiciendis. Labore, nemo
+                                                deserunt? Ipsam nihil sapiente
+                                                voluptatibus possimus eaque
+                                                distinctio temporibus incidunt
+                                                itaque debitis omnis quidem aut
+                                                blanditiis sunt laudantium
+                                                mollitia odit perspiciatis esse
+                                                quo officia quasi, tempora
+                                                tenetur!
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <FooterLayout />
             </div>
         </>
     );
