@@ -2,6 +2,8 @@ import { Link, Head } from "@inertiajs/react";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import FooterLayout from "@/Layouts/FooterLayout";
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import NavLink from "@/Components/NavLink";
 
 export default function About({ auth }) {
     const [nav, setNav] = useState(false);
@@ -14,11 +16,28 @@ export default function About({ auth }) {
             <Head title="Welcome" />
 
             <div className="min-h-screen bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]">
-                <nav className="bg-black/25 border-b border-black">
+            <nav className="bg-black/25 border-b drop-shadow-xl border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
-                        <h1 className="mx-auto mt-1 w-full font-extrabold font-untouched text-lg lg:text-3xl  bg-gradient-to-r from-[#ffffff] via-[#001618] to-[#001618] bg-clip-text text-transparent">
-                            Triestis<span className="text-[#1feffe]">.</span>
-                        </h1>
+                        <div className="flex">
+                            <div className="shrink-0 flex items-center">
+                                <Link href="/">
+                                    <ApplicationLogo className="block w-auto fill-current text-white" />
+                                </Link>
+                            </div>
+
+                            <div className="hidden sm:-my-px sm:flex">
+                                <NavLink
+                                    href="/"
+                                >
+                                    <h1 className="w-full font-extrabold font-untouched text-lg  lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
+                                        Triestis
+                                        <span className="text-[#1feffe]">
+                                            .
+                                        </span>
+                                    </h1>
+                                </NavLink>
+                            </div>
+                        </div>
                         <ul className="hidden text-gray-400 font-semibold md:flex">
                             <li className="p-4">
                                 <Link href="/">Home</Link>
@@ -155,15 +174,21 @@ export default function About({ auth }) {
                             backgroundImage: `url(${"../../Assets/ARENAWIDE-MOCKUP_1920X1280_72DPI.png"})`,
                             backgroundSize: "cover",
                             backgroundRepeat: "no-repeat",
+                            backdropFilter: "blur(10rem)",
                         }}
                     >
                         <div class=" py-10 mx-auto">
-                            <div class="lg:-mx-6 md:flex max-w-full md:items-cente md:mt-[5%] md:items-center">
+                            <div class="lg:-mx-6 md:flex max-w-full md:mt-[5%] md:items-center">
                                 <div className="mt-6 lg:w-1/2 md:mt-0 md:w-20 text-center">
+                                    <img
+                                        className=" mr-14 h-98 opacity-80"
+                                        src="../../Assets/triestis mgmt LOGO.png"
+                                        alt=""
+                                    />
                                 </div>
-                                <div class="mt-6 lg:w-1/2 md:mt-0 md:mx-10 ">
-                                    <div class="text-sm text-gray-500 md:text-xl bg-black/50 p-10">
-                                        <p className="font-extrabold font-untouched text-lg md:text-6xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
+                                <div class="mt-6 lg:w-1/2 md:mt-0 md:mx-10  md:items-center">
+                                    <div class="text-sm text-gray-500 md:text-xl md:h-full overflow-hidden ... text-center h-64 bg-black/60 p-5">
+                                        <p className="font-extrabold font-untouched text-lg md:text-6xl m-10  bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
                                             <span className="text-white">
                                                 "
                                             </span>{" "}
@@ -171,7 +196,7 @@ export default function About({ auth }) {
                                             <span className="text-[#1feffe]">
                                                 .
                                             </span>
-                                            <span className="font-sans text-white text-lg italic">
+                                            <span className="font-sans text-white md:text-lg text-sm italic">
                                                 Lorem ipsum dolor sit amet
                                                 consectetur adipisicing elit.
                                                 Mollitia ut perspiciatis facere
