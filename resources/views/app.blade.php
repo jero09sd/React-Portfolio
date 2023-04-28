@@ -13,6 +13,7 @@
     <link href="https://fonts.cdnfonts.com/css/untouched" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
     <link href="https://fonts.cdnfonts.com/css/times-new-roman" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <!-- Scripts -->
     @routes

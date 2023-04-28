@@ -1,14 +1,14 @@
 import { Link, Head } from "@inertiajs/react";
 import { useState } from "react";
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import NavLink from "@/Components/NavLink";
 import {
-    AiOutlineClose,
-    AiOutlineMenu,
     AiOutlineLeft,
     AiOutlineRight,
     AiFillDollarCircle,
+    AiOutlineClose,
+    AiOutlineMenu,
 } from "react-icons/ai";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import NavLink from "@/Components/NavLink";
 import { TbFreeRights } from "react-icons/tb";
 import FooterLayout from "@/Layouts/FooterLayout";
 import React from "react";
@@ -19,7 +19,6 @@ export default function Welcome({ auth }) {
     const handleNav = () => {
         setNav(!nav);
     };
-
     const [currentIndex, setCurrentIndex] = React.useState(0);
 
     const carouselItems = [
@@ -59,7 +58,6 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head title="Welcome" />
-
             <div
                 className="min-h-screen bg-gradient-to-br h-full from-[#000300] via-[#142238] to-[#000000]"
                 style={{
@@ -69,6 +67,7 @@ export default function Welcome({ auth }) {
                     backdropFilter: "blur(10rem)",
                 }}
             >
+                {" "}
                 <nav className="bg-black/25 border-b drop-shadow-xl border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
                         <div className="flex">
@@ -79,9 +78,7 @@ export default function Welcome({ auth }) {
                             </div>
 
                             <div className="hidden sm:-my-px sm:flex">
-                                <NavLink
-                                    href="/"
-                                >
+                                <NavLink href="/">
                                     <h1 className="w-full font-extrabold font-untouched text-lg  lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
                                         Triestis
                                         <span className="text-[#1feffe]">
@@ -102,15 +99,27 @@ export default function Welcome({ auth }) {
                                 <Link href="Contact">Contact</Link>
                             </li>
                             {auth.user ? (
-                                <li className="p-4">
-                                    {" "}
-                                    <Link
-                                        href={route("dashboard")}
-                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                        Dashboard
-                                    </Link>
-                                </li>
+                                <>
+                                    {auth.user.role === "admin" && (
+                                        <li className="p-4">
+                                            <Link
+                                                href={route("dashboard")}
+                                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            >
+                                                Dashboard
+                                            </Link>
+                                        </li>
+                                    )}
+                                    <li className="p-4">
+                                        <Link
+                                            method="post"
+                                            href={route("logout")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </>
                             ) : (
                                 <>
                                     <li className="p-4">
@@ -121,7 +130,6 @@ export default function Welcome({ auth }) {
                                             Login
                                         </Link>
                                     </li>
-
                                     <li className="p-4">
                                         <Link
                                             href={route("register")}
@@ -143,7 +151,7 @@ export default function Welcome({ auth }) {
                         <ul
                             className={
                                 nav
-                                    ? "fixed min-h-full left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
+                                    ? " min-h-max flex flex-col absolute h-[200rem] left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-black ease-in-out duration-500"
                                     : "ease-in-out duration-600 fixed left-[-100%]"
                             }
                         >
@@ -151,15 +159,14 @@ export default function Welcome({ auth }) {
                                 Triestis
                                 <span className="text-[#1feffe]">.</span>
                             </h1>
-                            <li className="p-4 border-b border-gray-200 hover:border-gray-800 ease-out transition-all">
-                                {" "}
+                            <li className="p-4">
                                 <Link href="/">Home</Link>
                             </li>
-                            <li className="p-4 ">
-                                <Link href="About"> About </Link>
+                            <li className="p-4">
+                                <Link href="About">About </Link>
                             </li>
-                            <li className="p-4 ">
-                                <Link href="Contact"> Contact</Link>
+                            <li className="p-4">
+                                <Link href="Contact">Contact</Link>
                             </li>
                             {auth.user ? (
                                 <li className="p-4">
@@ -195,7 +202,7 @@ export default function Welcome({ auth }) {
                         </ul>
                     </div>
                 </nav>
-                <section className="relative overflow-hidden">
+                <section className="relative hidden md:block overflow-hidden">
                     <div className="relative w-full h-[20rem] sm:h-[70rem]">
                         <div
                             className="absolute w-full h-full flex"
@@ -249,9 +256,8 @@ export default function Welcome({ auth }) {
                 </section>
                 <main class="py-16 container mx-auto px-6 md:px-0">
                     <section className="text-center">
-                        <h1 class="inline-block text-gray-600 font-bold text-3xl">
-                            Earn through games <br />
-                            or Compete with other gamers
+                        <h1 class="inline-block uppercase font-Roman text-gray-300 font-bold text-7xl">
+                            Earn while playing games
                         </h1>
 
                         <div class="grid grid-cols-3 gap-4 mt-10 text-start">
@@ -294,7 +300,7 @@ export default function Welcome({ auth }) {
                         </div>
                     </section>
                 </main>
-                <div class="mx-auto mt-5 bg-transparent h-full w-full rounded-md flex justify-center items-center">
+                <div class="mx-auto my-10 bg-transparent h-full w-full rounded-md flex justify-center items-center">
                     <div class="grid grid-cols-8 gap-2 px-2">
                         <div class="flex flex-col gap-1">
                             <a href="" class="bg-purple-500/25">
@@ -371,7 +377,7 @@ export default function Welcome({ auth }) {
                                     class="hover:bg-gray-600 text-gray-300 text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full"
                                 >
                                     {" "}
-                                    MMORPG{" "}
+                                    RPG{" "}
                                 </a>
                             </div>
                         </div>
@@ -387,7 +393,7 @@ export default function Welcome({ auth }) {
                                 class="hover:text-purple-500 text-gray-200 font-semibold"
                             >
                                 {" "}
-                                Just Chatting{" "}
+                                Dekaron{" "}
                             </a>
                             <div class="flex flex-row flex-wrap gap-2">
                                 <a

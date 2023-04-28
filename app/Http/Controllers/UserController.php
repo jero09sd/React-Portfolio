@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -18,17 +19,31 @@ class UserController extends Controller
                 ->orWhere('email', 'like', '%' . $search . '%');
         })->paginate($perPage);
 
+        $usersCount = User::count();
+        Log::info("User count: " . $usersCount);
+
         return Inertia::render('UsersDashboard', [
             'users' => $users,
             'search' => $search,
+            'usersCount' => $usersCount,
         ]);
     }
+
 
     public function destroy($id)
     {
         User::find($id)->delete();
 
         return redirect()->back();
+    }
+    public function dashboard()
+    {
+        $usersCount = User::count();
+        Log::info("User count: " . $usersCount);
+
+        return Inertia::render('Dashboard', [
+            'usersCount' => $usersCount,
+        ]);
     }
 }
 

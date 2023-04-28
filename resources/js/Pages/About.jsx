@@ -13,10 +13,18 @@ export default function About({ auth }) {
     };
     return (
         <>
-            <Head title="Welcome" />
+            <Head title="About" />
 
-            <div className="min-h-screen bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]">
-            <nav className="bg-black/25 border-b drop-shadow-xl border-black">
+            <div
+                className="min-h-screen bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]"
+                style={{
+                    backgroundImage: `url(${"../../Assets/blurredBG.png"})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backdropFilter: "blur(10rem)",
+                }}
+            >
+                <nav className="bg-black/25 border-b drop-shadow-xl border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
@@ -26,9 +34,7 @@ export default function About({ auth }) {
                             </div>
 
                             <div className="hidden sm:-my-px sm:flex">
-                                <NavLink
-                                    href="/"
-                                >
+                                <NavLink href="/">
                                     <h1 className="w-full font-extrabold font-untouched text-lg  lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
                                         Triestis
                                         <span className="text-[#1feffe]">
@@ -90,8 +96,8 @@ export default function About({ auth }) {
                         <ul
                             className={
                                 nav
-                                    ? "fixed min-h-full left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
-                                    : "ease-in-out duration-600 fixed left-[-100%]"
+                                    ? "absolute min-h-max h-[98rem] z-auto left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-black  ease-in-out duration-500"
+                                    : "ease-in-out duration-600 fixed z-50 left-[-100%]"
                             }
                         >
                             <h1 className="mx-4 mt-4 w-full font-extrabold font-untouched text-lg lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
