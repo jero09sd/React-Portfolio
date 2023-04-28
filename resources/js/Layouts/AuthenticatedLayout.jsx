@@ -28,7 +28,6 @@ export default function Authenticated({ user, header, children }) {
                                     <ApplicationLogo className="block w-auto fill-current text-white" />
                                 </Link>
                             </div>
-
                             <div className="hidden sm:-my-px sm:flex">
                                 <NavLink
                                     href={route("dashboard")}
@@ -72,14 +71,6 @@ export default function Authenticated({ user, header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-                                        <Dropdown.Link
-                                            href={route("profile.edit")}
-                                        >
-                                            Profile
-                                        </Dropdown.Link>
-                                        <Dropdown.Link href="usersdashboard">
-                                            Admin Dashboard
-                                        </Dropdown.Link>
                                         <Dropdown.Link
                                             href={route("logout")}
                                             method="post"
@@ -178,7 +169,7 @@ export default function Authenticated({ user, header, children }) {
 
             {header && (
                 <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-7xl font-untouched mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {header}
                     </div>
                 </header>

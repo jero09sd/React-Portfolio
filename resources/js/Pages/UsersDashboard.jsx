@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import FooterLayout from "@/Layouts/FooterLayout";
-import { MdArrowCircleLeft, MdArrowCircleRight, MdOutlineDashboardCustomize } from "react-icons/md";
+import {
+    MdArrowCircleLeft,
+    MdArrowCircleRight,
+    MdOutlineDashboardCustomize,
+} from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { Link } from "@inertiajs/react";
+import { Link, Head } from "@inertiajs/react";
 
 export default function UsersDashboard({ users, auth }) {
     const [search, setSearch] = useState("");
@@ -37,17 +42,24 @@ export default function UsersDashboard({ users, auth }) {
         <AuthenticatedLayout user={auth.user}>
             {" "}
             <div className="">
+                {" "}
+                <Head title="Users Management Page" />
                 <div className="flex w-full ">
-                    <div className="md:w-[3.35rem] hidden md:block h-screen">
-                        <div className="ease-in-out duration-700 min-h-max w-[3.35rem] overflow-hidden border-r bg-black/25 md:hover:w-60 md:hover:bg-black/25 md:hover:shadow-lg">
+                    <div className="md:w-[3.6rem] hidden md:block h-screen">
+                        <div className="ease-in-out duration-700 min-h-max w-[3.6rem] overflow-hidden border-r bg-black/25 md:hover:w-60 md:hover:bg-black/25 md:hover:shadow-lg">
                             <div className="flex md:h-[91.5rem] h-[142vh] overflow-x-hidden flex-col justify-between pt-2 pb-6">
                                 <div>
-                                    <div class="w-max p-2.5">
-                                        <img
-                                            src="https://tailus.io/images/logo.svg"
-                                            class="w-32"
-                                            alt=""
-                                        />
+                                    {" "}
+                                    <div className="shrink-2 flex items-center">
+                                        <Link href="/" className="relative">
+                                            <ApplicationLogo className="block w-auto fill-current text-white" />
+                                        </Link>
+                                        <h1 className="w-full font-extrabold font-untouched text-lg  lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
+                                            Triestis
+                                            <span className="text-[#1feffe]">
+                                                .
+                                            </span>
+                                        </h1>
                                     </div>
                                     <ul class="mt-6 tracking-wide">
                                         <li class="min-w-max">
@@ -56,16 +68,21 @@ export default function UsersDashboard({ users, auth }) {
                                                 aria-label="dashboard"
                                                 className="relative flex items-center bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white"
                                             >
-                                                <div className="mr-3"> <MdOutlineDashboardCustomize size={30}/></div>
-                                                
+                                                <div className="mr-3">
+                                                    {" "}
+                                                    <MdOutlineDashboardCustomize
+                                                        size={30}
+                                                    />
+                                                </div>
+
                                                 <span class="-mr-1 font-medium">
-                                                    Users Dashboard
+                                                    Users Management
                                                 </span>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link
-                                                 href={route("profile.edit")}
+                                                href={route("profile.edit")}
                                                 aria-label="dashboard"
                                                 class="relative flex items-center hover:bg-gradient-to-r from-sky-600/25 to-cyan-400/25 px-4 py-3 text-white"
                                             >
@@ -73,7 +90,9 @@ export default function UsersDashboard({ users, auth }) {
                                                     {" "}
                                                     <CgProfile size={30} />
                                                 </div>
-                                                <span className="mr-1 font-medium">Profile</span>
+                                                <span className="mr-1 font-medium">
+                                                    Profile
+                                                </span>
                                             </Link>
                                         </li>
                                     </ul>
@@ -104,13 +123,10 @@ export default function UsersDashboard({ users, auth }) {
                         </div>{" "}
                     </div>
                     <div className="w-full">
-                        <div className=" items-center justify-between pb-6">
+                        <div className=" items-center justify-between my-11 pb-6">
                             <div className="flex flex-col items-center justify-between pb-6">
-                                <div className="flex justify-between items-center max-w-2xl w-full">
-                                    <h1 className="font-semibold text-xl  text-gray-800 leading-tight">
-                                        Users Dashboard
-                                    </h1>
-                                    <div className="flex items-center justify-between">
+                                <div className="flex justify-end items-end max-w-screen-2xl w-full">
+                                    <div className="flex items-end">
                                         <input
                                             type="text"
                                             placeholder="Search users"

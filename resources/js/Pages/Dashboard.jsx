@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Head } from "@inertiajs/react";
+import { Link, Head } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Link } from "@inertiajs/react";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import FooterLayout from "@/Layouts/FooterLayout";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Dashboard({ auth, usersCount }) {
     const [usersCountState, setUsersCountState] = useState(usersCount);
@@ -27,15 +27,19 @@ export default function Dashboard({ auth, usersCount }) {
                 <div>
                     <div className="flex w-full ">
                         <div className="md:w-[3.35rem] hidden md:block h-screen">
-                            <div className="ease-in-out duration-700 min-h-full w-[3.35rem] overflow-hidden border-r bg-black/25 md:hover:bg[#142238] md:hover:w-60 md:hover:bg-black/25 md:hover:shadow-lg">
+                            <div className="ease-in-out duration-700 min-h-full w-[3.35rem] overflow-hidden border-r bg-black/25 md:hover:bg[#142238] md:hover:w-60 md:hover:bg-[#142238]/50 md:hover:shadow-lg">
                                 <div className="flex md:h-screen h-[142vh] overflow-x-hidden flex-col justify-between pt-2 pb-6">
                                     <div>
-                                        <div class="w-max p-2.5">
-                                            <img
-                                                src="https://tailus.io/images/logo.svg"
-                                                class="w-32"
-                                                alt=""
-                                            />
+                                        <div className="shrink-2 flex items-center">
+                                            <Link href="/" className="relative">
+                                                <ApplicationLogo className="block w-auto fill-current text-white" />
+                                            </Link>
+                                            <h1 className="w-full font-extrabold font-untouched text-lg  lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
+                                                Triestis
+                                                <span className="text-[#1feffe]">
+                                                    .
+                                                </span>
+                                            </h1>
                                         </div>
                                         <ul class="mt-6 tracking-wide">
                                             <li class="min-w-max">
@@ -52,7 +56,7 @@ export default function Dashboard({ auth, usersCount }) {
                                                     </div>
 
                                                     <span class="-mr-1 font-medium">
-                                                        Users Dashboard
+                                                        Users Management
                                                     </span>
                                                 </Link>
                                             </li>
@@ -80,7 +84,7 @@ export default function Dashboard({ auth, usersCount }) {
                                         >
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                class="h-10 w-10 group-hover:fill-cyan-600"
+                                                class="h-6 w-6 group-hover:fill-cyan-600"
                                                 viewBox="0 0 20 20"
                                                 fill="currentColor"
                                             >

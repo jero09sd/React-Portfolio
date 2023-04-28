@@ -13,7 +13,7 @@ import { TbFreeRights } from "react-icons/tb";
 import FooterLayout from "@/Layouts/FooterLayout";
 import React from "react";
 
-export default function Welcome({ auth }) {
+export default function Welcome({ auth, user, header }) {
     const [nav, setNav] = useState(false);
 
     const handleNav = () => {
@@ -58,6 +58,7 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head title="Welcome" />
+            
             <div
                 className="min-h-screen bg-gradient-to-br h-full from-[#000300] via-[#142238] to-[#000000]"
                 style={{
@@ -169,30 +170,41 @@ export default function Welcome({ auth }) {
                                 <Link href="Contact">Contact</Link>
                             </li>
                             {auth.user ? (
-                                <li className="p-4">
-                                    {" "}
-                                    <Link
-                                        href={route("dashboard")}
-                                        className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                        Dashboard
-                                    </Link>
-                                </li>
+                                <>
+                                    {auth.user.role === "admin" && (
+                                        <li className="p-4">
+                                            <Link
+                                                href={route("dashboard")}
+                                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            >
+                                                Dashboard
+                                            </Link>
+                                        </li>
+                                    )}
+                                    <li className="p-4">
+                                        <Link
+                                            method="post"
+                                            href={route("logout")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </>
                             ) : (
                                 <>
                                     <li className="p-4">
                                         <Link
                                             href={route("login")}
-                                            className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                         >
                                             Login
                                         </Link>
                                     </li>
-
                                     <li className="p-4">
                                         <Link
                                             href={route("register")}
-                                            className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                         >
                                             Register
                                         </Link>
@@ -602,7 +614,7 @@ export default function Welcome({ auth }) {
                             <h2 className="text-2xl font-bold text-center py-8">
                                 <div className="flex justify-center items-center">
                                     <AiFillDollarCircle
-                                        color="gold"
+                                        color="black"
                                         size={50}
                                     />
                                 </div>
@@ -636,6 +648,14 @@ export default function Welcome({ auth }) {
                 </div>
                 <FooterLayout />
             </div>
+            
+            {header && (
+                <header className="bg-white font-untouched shadow">
+                    <div className="max-w-7xl  mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <span>{appName}</span>
+                    </div>
+                </header>
+            )}
         </>
     );
 }

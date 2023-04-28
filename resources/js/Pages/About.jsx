@@ -16,7 +16,7 @@ export default function About({ auth }) {
             <Head title="About" />
 
             <div
-                className="min-h-screen bg-gradient-to-br from-[#000300] via-[#142238] to-[#000000]"
+                className="min-h-screen bg-gradient-to-br h-full from-[#000300] via-[#142238] to-[#000000]"
                 style={{
                     backgroundImage: `url(${"../../Assets/blurredBG.png"})`,
                     backgroundSize: "cover",
@@ -55,15 +55,27 @@ export default function About({ auth }) {
                                 <Link href="Contact">Contact</Link>
                             </li>
                             {auth.user ? (
-                                <li className="p-4">
-                                    {" "}
-                                    <Link
-                                        href={route("dashboard")}
-                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                        Dashboard
-                                    </Link>
-                                </li>
+                                <>
+                                    {auth.user.role === "admin" && (
+                                        <li className="p-4">
+                                            <Link
+                                                href={route("dashboard")}
+                                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            >
+                                                Dashboard
+                                            </Link>
+                                        </li>
+                                    )}
+                                    <li className="p-4">
+                                        <Link
+                                            method="post"
+                                            href={route("logout")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </>
                             ) : (
                                 <>
                                     <li className="p-4">
@@ -74,7 +86,6 @@ export default function About({ auth }) {
                                             Login
                                         </Link>
                                     </li>
-
                                     <li className="p-4">
                                         <Link
                                             href={route("register")}
@@ -96,49 +107,59 @@ export default function About({ auth }) {
                         <ul
                             className={
                                 nav
-                                    ? "absolute min-h-max h-[98rem] z-auto left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-black  ease-in-out duration-500"
-                                    : "ease-in-out duration-600 fixed z-50 left-[-100%]"
+                                    ? " min-h-max flex flex-col absolute h-[200rem] left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-black ease-in-out duration-500"
+                                    : "ease-in-out duration-600 fixed left-[-100%]"
                             }
                         >
                             <h1 className="mx-4 mt-4 w-full font-extrabold font-untouched text-lg lg:text-3xl bg-gradient-to-br from-[#2470c6]  via-[#1feffe] to-white bg-clip-text text-transparent">
                                 Triestis
                                 <span className="text-[#1feffe]">.</span>
                             </h1>
-                            <li className="p-4 border-b border-gray-200 hover:border-gray-800 ease-out transition-all">
-                                {" "}
+                            <li className="p-4">
                                 <Link href="/">Home</Link>
                             </li>
-                            <li className="p-4 ">
-                                <Link href="About"> About </Link>
+                            <li className="p-4">
+                                <Link href="About">About </Link>
                             </li>
-                            <li className="p-4 ">
-                                <Link href="Contact"> Contact</Link>
+                            <li className="p-4">
+                                <Link href="Contact">Contact</Link>
                             </li>
                             {auth.user ? (
-                                <li className="p-4">
-                                    {" "}
-                                    <Link
-                                        href={route("dashboard")}
-                                        className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                        Dashboard
-                                    </Link>
-                                </li>
+                                <>
+                                    {auth.user.role === "admin" && (
+                                        <li className="p-4">
+                                            <Link
+                                                href={route("dashboard")}
+                                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            >
+                                                Dashboard
+                                            </Link>
+                                        </li>
+                                    )}
+                                    <li className="p-4">
+                                        <Link
+                                            method="post"
+                                            href={route("logout")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </>
                             ) : (
                                 <>
                                     <li className="p-4">
                                         <Link
                                             href={route("login")}
-                                            className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                         >
                                             Login
                                         </Link>
                                     </li>
-
                                     <li className="p-4">
                                         <Link
                                             href={route("register")}
-                                            className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                         >
                                             Register
                                         </Link>

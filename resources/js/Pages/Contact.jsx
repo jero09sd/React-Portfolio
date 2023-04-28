@@ -22,7 +22,7 @@ export default function Contact({ auth }) {
             }}
         >
             <Head title="Contact" />
-            <nav className="bg-black border-b drop-shadow-xl border-black">
+            <nav className="bg-black/25 border-b drop-shadow-xl border-black">
                 <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
                     <div className="flex">
                         <div className="shrink-0 flex items-center">
@@ -51,15 +51,27 @@ export default function Contact({ auth }) {
                             <Link href="Contact">Contact</Link>
                         </li>
                         {auth.user ? (
-                            <li className="p-4">
-                                {" "}
-                                <Link
-                                    href={route("dashboard")}
-                                    className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                >
-                                    Dashboard
-                                </Link>
-                            </li>
+                            <>
+                                {auth.user.role === "admin" && (
+                                    <li className="p-4">
+                                        <Link
+                                            href={route("dashboard")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                    </li>
+                                )}
+                                <li className="p-4">
+                                    <Link
+                                        method="post"
+                                        href={route("logout")}
+                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    >
+                                        Logout
+                                    </Link>
+                                </li>
+                            </>
                         ) : (
                             <>
                                 <li className="p-4">
@@ -70,7 +82,6 @@ export default function Contact({ auth }) {
                                         Login
                                     </Link>
                                 </li>
-
                                 <li className="p-4">
                                     <Link
                                         href={route("register")}
@@ -82,7 +93,7 @@ export default function Contact({ auth }) {
                             </>
                         )}
                     </ul>
-                    <div onClick={handleNav} className=" block md:hidden z-50">
+                    <div onClick={handleNav} className=" block md:hidden">
                         {nav ? (
                             <AiOutlineClose size={20} color="white" />
                         ) : (
@@ -92,7 +103,7 @@ export default function Contact({ auth }) {
                     <ul
                         className={
                             nav
-                                ? " min-h-full flex flex-col absolute h-[90rem] left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-black ease-in-out duration-500"
+                                ? " min-h-max flex flex-col absolute h-[200rem] left-0 top-0 w-[60%] text-white border-r border-r-gray-900 bg-black ease-in-out duration-500"
                                 : "ease-in-out duration-600 fixed left-[-100%]"
                         }
                     >
@@ -100,41 +111,51 @@ export default function Contact({ auth }) {
                             Triestis
                             <span className="text-[#1feffe]">.</span>
                         </h1>
-                        <li className="p-4 border-b border-gray-200 hover:border-gray-800 ease-out transition-all">
-                            {" "}
+                        <li className="p-4">
                             <Link href="/">Home</Link>
                         </li>
-                        <li className="p-4 ">
-                            <Link href="About"> About </Link>
+                        <li className="p-4">
+                            <Link href="About">About </Link>
                         </li>
-                        <li className="p-4 ">
-                            <Link href="Contact"> Contact</Link>
+                        <li className="p-4">
+                            <Link href="Contact">Contact</Link>
                         </li>
                         {auth.user ? (
-                            <li className="p-4">
-                                {" "}
-                                <Link
-                                    href={route("dashboard")}
-                                    className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                >
-                                    Dashboard
-                                </Link>
-                            </li>
+                            <>
+                                {auth.user.role === "admin" && (
+                                    <li className="p-4">
+                                        <Link
+                                            href={route("dashboard")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                    </li>
+                                )}
+                                <li className="p-4">
+                                    <Link
+                                        method="post"
+                                        href={route("logout")}
+                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    >
+                                        Logout
+                                    </Link>
+                                </li>
+                            </>
                         ) : (
                             <>
                                 <li className="p-4">
                                     <Link
                                         href={route("login")}
-                                        className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         Login
                                     </Link>
                                 </li>
-
                                 <li className="p-4">
                                     <Link
                                         href={route("register")}
-                                        className="font-semibold dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         Register
                                     </Link>
@@ -144,8 +165,8 @@ export default function Contact({ auth }) {
                     </ul>
                 </div>
             </nav>
-            <div className="min-h-full">
-                <div class=" py-20 lg:py-[20rem] overflow-hidden relative z-10">
+            <div className="z-min-h-full">
+                <section class="bg-tansparent py-20 lg:py-[20rem] overflow-hidden relative z-10">
                     <div class="container">
                         <div class="flex flex-wrap lg:justify-between -mx-4">
                             <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
@@ -274,7 +295,7 @@ export default function Contact({ auth }) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
             <FooterLayout />
         </div>
