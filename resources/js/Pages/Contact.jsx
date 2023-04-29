@@ -7,6 +7,10 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import NavLink from "@/Components/NavLink";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export default function Contact({ auth }) {
     const [nav, setNav] = useState(false);
@@ -30,11 +34,14 @@ export default function Contact({ auth }) {
                 (result) => {
                     console.log(result.text);
                     console.log("message sent");
+                    toast.success("Message sent successfully");
                 },
                 (error) => {
                     console.log(error.text);
+                    toast.error("An error occurred. Please try again later.");
                 }
             );
+            
     };
     return (
         <div
@@ -45,7 +52,7 @@ export default function Contact({ auth }) {
                 backgroundRepeat: "no-repeat",
                 backdropFilter: "blur(10rem)",
             }}
-        >
+        >     <ToastContainer />
             <Head title="Contact" />
             <nav className="bg-black/25 border-b drop-shadow-xl border-black">
                     <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto px-4">
