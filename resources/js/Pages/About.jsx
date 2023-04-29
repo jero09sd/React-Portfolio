@@ -1,6 +1,7 @@
 import { Link, Head } from "@inertiajs/react";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import Dropdown from "@/Components/Dropdown";
 import FooterLayout from "@/Layouts/FooterLayout";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import NavLink from "@/Components/NavLink";
@@ -44,7 +45,7 @@ export default function About({ auth }) {
                                 </NavLink>
                             </div>
                         </div>
-                        <ul className="hidden text-gray-400 font-semibold md:flex">
+                        <ul className="hidden text-gray-400 items-center font-semibold md:flex">
                             <li className="p-4">
                                 <Link href="/">Home</Link>
                             </li>
@@ -67,13 +68,54 @@ export default function About({ auth }) {
                                         </li>
                                     )}
                                     <li className="p-4">
-                                        <Link
-                                            method="post"
-                                            href={route("logout")}
-                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                        >
-                                            Logout
-                                        </Link>
+                                        <div className="hidden sm:block sm:items-center sm:ml-6">
+                                            <div className="relative">
+                                                <Dropdown>
+                                                    <Dropdown.Trigger>
+                                                        <span className="inline-flex rounded-md">
+                                                            <button
+                                                                type="button"
+                                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                            >
+                                                                Logout
+                                                                <svg
+                                                                    className="ml-2 -mr-0.5 h-4 w-4"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 20 20"
+                                                                    fill="currentColor"
+                                                                >
+                                                                    <path
+                                                                        fillRule="evenodd"
+                                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                                        clipRule="evenodd"
+                                                                    />
+                                                                </svg>
+                                                            </button>
+                                                        </span>
+                                                    </Dropdown.Trigger>
+
+                                                    <Dropdown.Content>
+                                                        <Dropdown.Link
+                                                             href={route("profile.edit")}
+                                                            as="button"
+                                                        >
+                                                            <span className="mr-1 font-medium">
+                                                                Profile
+                                                            </span>
+                                                        </Dropdown.Link>
+                                                        <Dropdown.Link
+                                                            href={route(
+                                                                "logout"
+                                                            )}
+                                                            method="post"
+                                                            as="button"
+                                                        >
+                                                            Log Out
+                                                        </Dropdown.Link>
+                                                    </Dropdown.Content>
+                                                </Dropdown>
+                                            </div>
+                                        </div>
                                     </li>
                                 </>
                             ) : (

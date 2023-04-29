@@ -152,7 +152,7 @@ export default function UsersDashboard({ users, auth }) {
                                                         </span>
                                                         <h1 className="md:hidden flex justify-end">
                                                             {" "}
-                                                            Users Dashboard
+                                                            Users Management
                                                         </h1>
                                                     </th>
                                                     <th className="px-0 py-2 md:px-5 md:py-5 text-center text-sm font-semibold text-gray-100 uppercase tracking-wider whitespace-nowrap md:block hidden">
@@ -165,7 +165,7 @@ export default function UsersDashboard({ users, auth }) {
                                                 {currentItems.map((user) => (
                                                     <tr
                                                         key={user.id}
-                                                        className="border-b transition duration-300 ease-in-out hover:bg-black/30 dark:border-neutral-500 transform hover:scale-105"
+                                                        className="border-b transition duration-300 ease-in-out hover:bg-[#142238] dark:border-neutral-500 transform hover:scale-105"
                                                     >
                                                         <td className="px-2 py-2 md:px-5 md:py-5  bg-black/25 text-white md:text-center text-start text-sm md:block hidden">
                                                             {user.id}
